@@ -12,9 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             background: #f5f7fb;
@@ -56,9 +54,7 @@
             justify-content: center;
             margin-right: 10px;
         }
-        .sidebar-menu {
-            padding: 20px 12px;
-        }
+        .sidebar-menu { padding: 20px 12px; }
         .menu-title {
             font-size: 11px;
             font-weight: 700;
@@ -78,10 +74,7 @@
             border-radius: 10px;
             transition: all .2s ease;
         }
-        .sidebar-link i {
-            font-size: 18px;
-            width: 22px;
-        }
+        .sidebar-link i { font-size: 18px; width: 22px; }
         .sidebar-link:hover {
             background: rgba(255, 255, 255, .12);
             color: white;
@@ -95,10 +88,7 @@
         }
 
         /* MAIN WRAPPER & TOPBAR */
-        .main-wrapper {
-            margin-left: 250px;
-            min-height: 100vh;
-        }
+        .main-wrapper { margin-left: 250px; min-height: 100vh; }
         .topbar {
             height: 75px;
             background: white;
@@ -111,25 +101,10 @@
             top: 0;
             z-index: 1000;
         }
-        .topbar-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .page-title {
-            font-weight: 700;
-            font-size: 18px;
-            margin: 0;
-        }
-        .page-subtitle {
-            font-size: 12px;
-            color: #9ca3af;
-        }
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .topbar-left { display: flex; align-items: center; gap: 15px; }
+        .page-title { font-weight: 700; font-size: 18px; margin: 0; }
+        .page-subtitle { font-size: 12px; color: #9ca3af; }
+        .user-profile { display: flex; align-items: center; gap: 10px; }
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -141,26 +116,13 @@
             justify-content: center;
             font-weight: 700;
         }
-        .user-name {
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .user-role {
-            font-size: 11px;
-            color: #9ca3af;
-        }
+        .user-name { font-size: 14px; font-weight: 600; }
+        .user-role { font-size: 11px; color: #9ca3af; }
 
         /* CONTENT */
-        .content {
-            padding: 30px;
-        }
-        .card {
-            border: 0;
-            border-radius: 14px;
-            box-shadow: 0 3px 15px rgba(15, 23, 42, .06);
-        }
+        .content { padding: 30px; }
 
-        /* RESPONSIVE MOBILE */
+        /* RESPONSIVE */
         .sidebar-toggle {
             border: 0;
             background: transparent;
@@ -176,32 +138,12 @@
             z-index: 1040;
         }
         @media (max-width: 991px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            .sidebar.show {
-                transform: translateX(0);
-            }
-            .sidebar-overlay.show {
-                display: block;
-            }
-            .main-wrapper {
-                margin-left: 0;
-            }
-            .sidebar-toggle {
-                display: block;
-            }
-            .content {
-                padding: 20px;
-            }
-        }
-        @media (max-width: 576px) {
-            .topbar {
-                padding: 0 15px;
-            }
-            .user-info {
-                display: none;
-            }
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.show { transform: translateX(0); }
+            .sidebar-overlay.show { display: block; }
+            .main-wrapper { margin-left: 0; }
+            .sidebar-toggle { display: block; }
+            .content { padding: 20px; }
         }
     </style>
 
@@ -221,37 +163,28 @@
         <div class="sidebar-menu">
             <div class="menu-title">Menu Utama</div>
 
-            {{-- DASHBOARD --}}
-            <a href="{{ route('dashboard') }}" 
-               class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}" class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Dashboard</span>
             </a>
 
-            {{-- DATA MAHASISWA --}}
-            <a href="{{ route('mahasiswa.index') }}" 
-               class="sidebar-link {{ request()->routeIs('mahasiswa.*') ? 'active' : '' }}">
+            <a href="{{ route('mahasiswa.index') }}" class="sidebar-link {{ request()->routeIs('mahasiswa.*') ? 'active' : '' }}">
                 <i class="bi bi-people-fill"></i>
                 <span>Data Mahasiswa</span>
             </a>
 
-            {{-- PROGRAM STUDI --}}
-            <a href="{{ route('prodi.index') }}" 
-               class="sidebar-link {{ request()->routeIs('prodi.*') ? 'active' : '' }}">
+            <a href="{{ route('prodi.index') }}" class="sidebar-link {{ request()->routeIs('prodi.*') ? 'active' : '' }}">
                 <i class="bi bi-building"></i>
                 <span>Program Studi</span>
             </a>
 
             <div class="menu-title mt-3">Pengaturan</div>
 
-            {{-- PROFILE --}}
-            <a href="{{ route('profile.edit') }}" 
-               class="sidebar-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
+            <a href="{{ route('profile.edit') }}" class="sidebar-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                 <i class="bi bi-person-circle"></i>
                 <span>Profile</span>
             </a>
 
-            {{-- LOGOUT --}}
             <form action="{{ route('logout') }}" method="POST" class="m-0">
                 @csrf
                 <button type="submit" class="sidebar-link border-0 bg-transparent w-100 text-start">
@@ -262,13 +195,10 @@
         </div>
     </aside>
 
-    {{-- OVERLAY FOR MOBILE SIDEBAR --}}
     <div id="sidebarOverlay" class="sidebar-overlay"></div>
 
     {{-- MAIN WRAPPER --}}
     <div class="main-wrapper">
-        
-        {{-- TOPBAR --}}
         <header class="topbar">
             <div class="topbar-left">
                 <button id="sidebarToggle" class="sidebar-toggle" type="button">
@@ -291,31 +221,24 @@
             </div>
         </header>
 
-        {{-- MAIN CONTENT AREA --}}
         <main class="content">
-            
-            {{-- ALERT SUCCESS --}}
             @if(session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="bi bi-check-circle me-2"></i>
-                    {{ session('success') }}
+                    <i class="bi bi-check-circle me-2"></i>{{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
             @endif
 
-            {{-- ALERT ERROR --}}
             @if(session('error'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="bi bi-exclamation-circle me-2"></i>
-                    {{ session('error') }}
+                    <i class="bi bi-exclamation-circle me-2"></i>{{ session('error') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
             @endif
 
-            {{-- VALIDATION ERRORS --}}
             @if($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong><i class="bi bi-exclamation-triangle me-2"></i>Terdapat kesalahan input:</strong>
+                    <strong><i class="bi bi-exclamation-triangle me-2"></i>Terdapat kesalahan:</strong>
                     <ul class="mb-0 mt-2">
                         @foreach($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -329,26 +252,22 @@
         </main>
     </div>
 
-    {{-- Bootstrap 5 JS Bundle CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        // JS Toggle Sidebar Mobile
         const sidebar = document.getElementById('sidebar');
         const toggle = document.getElementById('sidebarToggle');
         const overlay = document.getElementById('sidebarOverlay');
 
-        toggle?.addEventListener('click', function () {
+        toggle?.addEventListener('click', () => {
             sidebar.classList.toggle('show');
             overlay.classList.toggle('show');
         });
 
-        overlay?.addEventListener('click', function () {
+        overlay?.addEventListener('click', () => {
             sidebar.classList.remove('show');
             overlay.classList.remove('show');
         });
     </script>
-
     @stack('scripts')
 </body>
 </html>

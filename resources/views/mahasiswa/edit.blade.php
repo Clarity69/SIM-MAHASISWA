@@ -6,7 +6,7 @@
 @section('content')
 <div class="mb-4">
     <h2 class="fw-bold mb-1">Edit Data Mahasiswa</h2>
-    <p class="text-muted mb-0">Perbarui informasi data mahasiswa yang terdaftar.</p>
+    <p class="text-muted mb-0">Perbarui informasi data mahasiswa.</p>
 </div>
 
 <div class="card border-0 shadow-sm">
@@ -25,7 +25,7 @@
                     @enderror
                 </div>
 
-                {{-- NAMA LENGKAP --}}
+                {{-- NAMA --}}
                 <div class="col-md-6">
                     <label class="form-label fw-semibold">Nama Lengkap <span class="text-danger">*</span></label>
                     <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama', $mahasiswa->nama) }}" required>
@@ -34,7 +34,7 @@
                     @enderror
                 </div>
 
-                {{-- PROGRAM STUDI --}}
+                {{-- PRODI --}}
                 <div class="col-md-6">
                     <label class="form-label fw-semibold">Program Studi <span class="text-danger">*</span></label>
                     <select name="prodi_id" class="form-select @error('prodi_id') is-invalid @enderror" required>
@@ -105,7 +105,7 @@
                     <i class="bi bi-arrow-left me-1"></i> Batal
                 </a>
                 <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-save me-1"></i> Perbarui Data
+                    <i class="bi bi-save me-1"></i> Update
                 </button>
             </div>
         </form>

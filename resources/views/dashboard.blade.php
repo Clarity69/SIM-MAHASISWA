@@ -1,9 +1,9 @@
 @extends('layouts.app')
-
 @section('title', 'Dashboard')
 @section('page-title', 'Dashboard')
-
 @section('content')
+
+
 {{-- HEADER DASHBOARD --}}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>

@@ -11,13 +11,13 @@ use Illuminate\Validation\Rule;
 class MahasiswaController extends Controller
 {
     /**
-     * Menampilkan daftar mahasiswa beserta fitur pencarian dan filter prodi.
+     * Menampilkan daftar mahasiswa beserta pencarian, filter prodi, dan pagination.
      */
     public function index(Request $request)
     {
         $query = Mahasiswa::with('prodi');
 
-        // Pencarian berdasarkan NIM atau Nama
+        // Fitur Pencarian NIM atau Nama
         if ($request->filled('search')) {
             $search = trim($request->input('search'));
             $query->where(function ($q) use ($search) {
@@ -26,7 +26,7 @@ class MahasiswaController extends Controller
             });
         }
 
-        // Filter berdasarkan Program Studi
+        // Fitur Filter Program Studi
         if ($request->filled('prodi_id')) {
             $query->where('prodi_id', $request->input('prodi_id'));
         }
@@ -41,7 +41,7 @@ class MahasiswaController extends Controller
     }
 
     /**
-     * Form tambah mahasiswa.
+     * Form tambah data mahasiswa.
      */
     public function create()
     {
@@ -91,6 +91,7 @@ class MahasiswaController extends Controller
             ],
             'prodi_id' => [
                 'required',
+                'integer',
                 'exists:prodis,id',
             ],
         ]);
@@ -103,7 +104,7 @@ class MahasiswaController extends Controller
     }
 
     /**
-     * Menampilkan detail data mahasiswa.
+     * Menampilkan detail mahasiswa.
      */
     public function show(Mahasiswa $mahasiswa)
     {
@@ -123,7 +124,7 @@ class MahasiswaController extends Controller
     }
 
     /**
-     * Mengubah data mahasiswa di database.
+     * Mengubah data mahasiswa.
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
@@ -163,6 +164,7 @@ class MahasiswaController extends Controller
             ],
             'prodi_id' => [
                 'required',
+                'integer',
                 'exists:prodis,id',
             ],
         ]);
@@ -187,7 +189,7 @@ class MahasiswaController extends Controller
     }
 
     /**
-     * Cetak dokumen laporan PDF (mengikuti kata kunci pencarian dan filter prodi yang aktif).
+     * Export laporan PDF mengikuti filter yang aktif.
      */
     public function pdf(Request $request)
     {

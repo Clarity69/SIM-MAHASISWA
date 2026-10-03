@@ -12,6 +12,13 @@ class Mahasiswa extends Model
     use HasFactory;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'mahasiswas';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -37,11 +44,12 @@ class Mahasiswa extends Model
     ];
 
     /**
-     * Relasi ke model Prodi (Many to One).
-     * Setiap Mahasiswa dimiliki oleh satu Prodi.
+     * Relasi ke model Prodi (Many-to-One).
+     *
+     * @return BelongsTo
      */
     public function prodi(): BelongsTo
     {
-        return $this->belongsTo(Prodi::class);
+        return $this->belongsTo(Prodi::class, 'prodi_id');
     }
 }

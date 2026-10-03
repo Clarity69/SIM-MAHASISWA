@@ -1,10 +1,8 @@
 @extends('layouts.app')
-
 @section('title', 'Data Mahasiswa')
 @section('page-title', 'Data Mahasiswa')
-
 @section('content')
-{{-- HEADER HALAMAN --}}
+
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2 class="fw-bold mb-1">Data Mahasiswa</h2>
@@ -20,7 +18,7 @@
     </div>
 </div>
 
-{{-- FILTER & PENCARIAN --}}
+{{-- PENCARIAN & FILTER --}}
 <div class="card border-0 shadow-sm mb-4">
     <div class="card-body">
         <form action="{{ route('mahasiswa.index') }}" method="GET">
@@ -60,7 +58,7 @@
     </div>
 </div>
 
-{{-- TABEL DATA --}}
+{{-- TABEL MAHASISWA --}}
 <div class="card border-0 shadow-sm">
     <div class="card-body p-0">
         <div class="table-responsive">
@@ -118,17 +116,15 @@
                     @empty
                         <tr>
                             <td colspan="6" class="text-center py-5">
-                                <div class="text-center">
-                                    <i class="bi bi-people fs-1 text-muted d-block mb-2"></i>
-                                    <h5 class="fw-bold">Data Mahasiswa Tidak Ditemukan</h5>
-                                    <p class="text-muted small">
-                                        @if(request('search') || request('prodi_id'))
-                                            Tidak ada data yang sesuai dengan kriteria pencarian.
-                                        @else
-                                            Belum ada data mahasiswa terdaftar.
-                                        @endif
-                                    </p>
-                                </div>
+                                <i class="bi bi-people fs-1 text-muted d-block mb-2"></i>
+                                <h5 class="fw-bold">Data Mahasiswa Tidak Ditemukan</h5>
+                                <p class="text-muted small">
+                                    @if(request('search') || request('prodi_id'))
+                                        Tidak ada data yang sesuai dengan kriteria pencarian.
+                                    @else
+                                        Belum ada data mahasiswa terdaftar.
+                                    @endif
+                                </p>
                             </td>
                         </tr>
                     @endforelse
@@ -136,7 +132,7 @@
             </table>
         </div>
 
-        {{-- NAVIGASI PAGINATION MANUAL BOOTSTRAP --}}
+        {{-- PAGINATION --}}
         @if($mahasiswas->hasPages())
             <div class="d-flex justify-content-between align-items-center p-3 border-top">
                 <div class="text-muted small">
@@ -144,14 +140,12 @@
                 </div>
                 <nav>
                     <ul class="pagination pagination-sm mb-0">
-                        {{-- PREVIOUS LINK --}}
                         @if($mahasiswas->onFirstPage())
                             <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
                         @else
                             <li class="page-item"><a class="page-link" href="{{ $mahasiswas->previousPageUrl() }}">&laquo;</a></li>
                         @endif
 
-                        {{-- NUMERIC PAGE LINKS --}}
                         @foreach($mahasiswas->getUrlRange(max(1, $mahasiswas->currentPage() - 2), min($mahasiswas->lastPage(), $mahasiswas->currentPage() + 2)) as $page => $url)
                             @if($page == $mahasiswas->currentPage())
                                 <li class="page-item active"><span class="page-link">{{ $page }}</span></li>
@@ -160,7 +154,6 @@
                             @endif
                         @endforeach
 
-                        {{-- NEXT LINK --}}
                         @if($mahasiswas->hasMorePages())
                             <li class="page-item"><a class="page-link" href="{{ $mahasiswas->nextPageUrl() }}">&raquo;</a></li>
                         @else

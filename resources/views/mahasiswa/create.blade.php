@@ -6,7 +6,7 @@
 @section('content')
 <div class="mb-4">
     <h2 class="fw-bold mb-1">Tambah Mahasiswa</h2>
-    <p class="text-muted mb-0">Masukkan informasi lengkap mahasiswa baru.</p>
+    <p class="text-muted mb-0">Masukkan data mahasiswa baru.</p>
 </div>
 
 <div class="card border-0 shadow-sm">
@@ -24,16 +24,16 @@
                     @enderror
                 </div>
 
-                {{-- NAMA LENGKAP --}}
+                {{-- NAMA --}}
                 <div class="col-md-6">
                     <label class="form-label fw-semibold">Nama Lengkap <span class="text-danger">*</span></label>
-                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" placeholder="Masukkan nama lengkap" required>
+                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" placeholder="Nama mahasiswa" required>
                     @error('nama')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
-                {{-- PROGRAM STUDI --}}
+                {{-- PRODI --}}
                 <div class="col-md-6">
                     <label class="form-label fw-semibold">Program Studi <span class="text-danger">*</span></label>
                     <select name="prodi_id" class="form-select @error('prodi_id') is-invalid @enderror" required>
@@ -83,7 +83,7 @@
                 {{-- EMAIL --}}
                 <div class="col-md-12">
                     <label class="form-label fw-semibold">Email</label>
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="mahasiswa@example.com">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="mahasiswa@email.com">
                     @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -92,7 +92,7 @@
                 {{-- ALAMAT --}}
                 <div class="col-md-12">
                     <label class="form-label fw-semibold">Alamat</label>
-                    <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" rows="3" placeholder="Alamat lengkap">{{ old('alamat') }}</textarea>
+                    <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" rows="3" placeholder="Alamat lengkap mahasiswa">{{ old('alamat') }}</textarea>
                     @error('alamat')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -104,7 +104,7 @@
                     <i class="bi bi-arrow-left me-1"></i> Batal
                 </a>
                 <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-save me-1"></i> Simpan Data
+                    <i class="bi bi-save me-1"></i> Simpan
                 </button>
             </div>
         </form>

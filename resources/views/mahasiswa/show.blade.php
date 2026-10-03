@@ -7,11 +7,11 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2 class="fw-bold mb-1">Detail Mahasiswa</h2>
-        <p class="text-muted mb-0">Informasi riwayat lengkap profil mahasiswa.</p>
+        <p class="text-muted mb-0">Informasi lengkap profil mahasiswa.</p>
     </div>
     <div class="d-flex gap-2">
         <a href="{{ route('mahasiswa.edit', $mahasiswa) }}" class="btn btn-warning text-dark">
-            <i class="bi bi-pencil me-1"></i> Edit Data
+            <i class="bi bi-pencil me-1"></i> Edit
         </a>
         <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">
             <i class="bi bi-arrow-left me-1"></i> Kembali
@@ -20,7 +20,7 @@
 </div>
 
 <div class="row g-4">
-    {{-- CARD PROFIL RINGKAS --}}
+    {{-- CARD PROFIL --}}
     <div class="col-md-4">
         <div class="card border-0 shadow-sm text-center">
             <div class="card-body p-4">
@@ -38,11 +38,11 @@
         </div>
     </div>
 
-    {{-- DETAIL LENGKAP --}}
+    {{-- INFORMASI LENGKAP --}}
     <div class="col-md-8">
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-white py-3">
-                <h5 class="fw-bold mb-0">Informasi Personal</h5>
+                <h5 class="fw-bold mb-0">Informasi Mahasiswa</h5>
             </div>
             <div class="card-body p-4">
                 <div class="row g-3">
@@ -61,7 +61,7 @@
                     <div class="col-md-6">
                         <small class="text-muted d-block">Tanggal Lahir</small>
                         <span class="fw-semibold text-dark">
-                            {{ $mahasiswa->tanggal_lahir ? $mahasiswa->tanggal_lahir->format('d F Y') : '-' }}
+                            {{ $mahasiswa->tanggal_lahir ? $mahasiswa->tanggal_lahir->format('d-m-Y') : '-' }}
                         </span>
                     </div>
                     <div class="col-md-6">
