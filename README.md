@@ -30,7 +30,7 @@ Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi 
 | PHP | 8.4 |
 | Composer | 2.8 |
 | Node.js | 26 |
-| Database | MySQL |
+| Database | Supabase|
 | Autentikasi | Laravel Breeze |
 | Tampilan aplikasi | Bootstrap 5.3 + Bootstrap Icons (CDN) |
 | Tampilan login/register | Tailwind CSS (bawaan Breeze, via Vite) |
