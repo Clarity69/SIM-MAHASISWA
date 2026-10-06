@@ -192,7 +192,7 @@ routes/
 1. Clone repository
 
    ```bash
-   git clone https://github.com/USERNAME/sim-mahasiswa.git
+   git clone https://github.com/clarity69/SIM-MAHASISWA.git
    cd sim-mahasiswa
    ```
 
@@ -213,12 +213,13 @@ routes/
 4. Atur koneksi database di `.env`
 
    ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=sim_mahasiswa
-   DB_USERNAME=root
-   DB_PASSWORD=
+    DB_CONNECTION=pgsql
+    DB_HOST=db.xxxxxxxx.supabase.co
+    DB_PORT=5432
+    DB_DATABASE=postgres
+    DB_USERNAME=postgres
+    DB_PASSWORD=password-supabase-kamu
+    DB_SSLMODE=require
    ```
 
 5. Jalankan migration dan seeder (data prodi awal: TI, SI, TE)
@@ -246,9 +247,9 @@ routes/
 |---------|------------|
 | Login | ![Login](docs/screenshots/login.png) |
 | Dashboard | ![Dashboard](docs/screenshots/dashboard.png) |
-| Data Mahasiswa | ![Data Mahasiswa](docs/screenshots/mahasiswa-index.png) |
-| Tambah Mahasiswa | ![Tambah Mahasiswa](docs/screenshots/mahasiswa-create.png) |
-| Program Studi | ![Program Studi](docs/screenshots/prodi-index.png) |
+| Data Mahasiswa | ![Data Mahasiswa](docs/screenshots/datamhs.png) |
+| Tambah Mahasiswa | ![Tambah Mahasiswa](docs/screenshots/tambahmhs.png) |
+| Program Studi | ![Program Studi](docs/screenshots/prodi.png) |
 | Tampilan Mobile | ![Mobile](docs/screenshots/mobile.png) |
 
 ---
