@@ -1,58 +1,270 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SIM Mahasiswa — Sistem Informasi Data Mahasiswa
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Mini project Laravel untuk mengelola data mahasiswa dan program studi, dikerjakan mengikuti modul **Mini Project Laravel 11 — Sistem Informasi Data Mahasiswa**.
 
-## About Laravel
+Alur aplikasi:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+```
+Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi → Logout
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+> **Status:** progress sampai **STEP 16 — Sidebar + Topbar + Responsive Layout** (± halaman 220 modul).
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 👥 Anggota Kelompok
 
-## Code of Conduct
+| No | Nama | NIM |
+|----|------|-----|
+| 1  | Taro| 202412023 | 
+| 2  | _Nama Anggota 2_ | _NIM_ |
+| 3  | _Nama Anggota 3_ | _NIM_ | 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🛠️ Teknologi
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+| Komponen | Versi / Keterangan |
+|----------|--------------------|
+| Laravel | 13.33 (modul memakai Laravel 11; kode tetap kompatibel) |
+| PHP | 8.4 |
+| Composer | 2.8 |
+| Node.js | 26 |
+| Database | MySQL |
+| Autentikasi | Laravel Breeze |
+| Tampilan aplikasi | Bootstrap 5.3 + Bootstrap Icons (CDN) |
+| Tampilan login/register | Tailwind CSS (bawaan Breeze, via Vite) |
+| Grafik dashboard | Chart.js |
+| Lainnya | Eloquent ORM, Resource Controller, Form Validation |
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## ✅ Progress Pengerjaan
+
+| Step | Materi | Status |
+|------|--------|--------|
+| 1 | Membuat project Laravel | ✅ Selesai |
+| 2 | Membuat database | ✅ Selesai |
+| 3 | Konfigurasi `.env` | ✅ Selesai |
+| 4 | Install Laravel Breeze | ✅ Selesai |
+| 5 | Migration (`prodis`, `mahasiswas`) | ✅ Selesai |
+| 6 | Model `Prodi` dan `Mahasiswa` | ✅ Selesai |
+| 7 | Seeder Program Studi | ✅ Selesai |
+| 8 | Relasi model (Prodi → Mahasiswa) | ✅ Selesai |
+| 9 | Controller (`Dashboard`, `Mahasiswa`, `Prodi`) | ✅ Selesai |
+| 10 | Route | ✅ Selesai |
+| 11 | Layout utama | ✅ Selesai |
+| 12 | Dashboard | ✅ Selesai |
+| 13 | CRUD Program Studi | ✅ Selesai |
+| 14 | CRUD Data Mahasiswa (search, filter, pagination, validasi) | ✅ Selesai |
+| 15 | Dashboard dinamis (statistik + grafik) | ✅ Selesai |
+| 16 | Sidebar + Topbar + Responsive Layout | ✅ Selesai |
+| 17 | Profil User + Authentication | ⏳ Berikutnya |
+| 18 | Mempercantik halaman Login & Register | ⏳ Belum |
+| 19 | Seeder + Factory data dummy | ⏳ Belum |
+| 20 | Final polish UI | ⏳ Belum |
+| 21 | Print PDF data mahasiswa | ⏳ Belum |
+
+---
+
+## ✨ Fitur yang Sudah Berjalan
+
+**Autentikasi** (Laravel Breeze)
+- Register, login, logout
+- Semua halaman data dilindungi middleware `auth`
+
+**Dashboard**
+- Total mahasiswa, total laki-laki, total perempuan, total program studi
+- Tabel 5 mahasiswa terbaru
+- Jumlah mahasiswa per program studi (grafik Chart.js)
+
+**Data Mahasiswa**
+- Tambah, lihat detail, edit, hapus (CRUD)
+- Pencarian berdasarkan NIM atau nama
+- Filter berdasarkan program studi
+- Pagination 10 data per halaman (pencarian/filter tetap terbawa saat pindah halaman)
+- Validasi input (NIM unik, jenis kelamin, email, prodi wajib ada)
+
+**Program Studi**
+- Tambah, lihat detail (beserta daftar mahasiswanya), edit, hapus
+- Pencarian berdasarkan kode, nama prodi, atau fakultas
+- Prodi yang masih memiliki mahasiswa tidak bisa dihapus
+
+**Tampilan (STEP 16)**
+- Sidebar dengan menu aktif otomatis
+- Topbar dengan informasi user
+- Notifikasi sukses, error, dan validasi
+- Responsive untuk layar mobile
+
+---
+
+## 🗄️ Struktur Database
+
+```
+prodis (1) ──────< (banyak) mahasiswas
+```
+
+**prodis**
+
+| Kolom | Keterangan |
+|-------|------------|
+| id | Primary key |
+| kode_prodi | Unik, contoh: `TI` |
+| nama_prodi | Contoh: Teknik Informatika |
+| fakultas | Nullable |
+| created_at, updated_at | Timestamp |
+
+**mahasiswas**
+
+| Kolom | Keterangan |
+|-------|------------|
+| id | Primary key |
+| nim | Unik |
+| nama | |
+| jenis_kelamin | `Laki-laki` / `Perempuan` |
+| tanggal_lahir | Nullable |
+| alamat | Nullable |
+| telepon | Nullable |
+| email | Nullable |
+| prodi_id | Foreign key → `prodis.id` |
+| created_at, updated_at | Timestamp |
+
+Relasi Eloquent:
+- `Prodi::mahasiswas()` → `hasMany`
+- `Mahasiswa::prodi()` → `belongsTo`
+
+---
+
+## 🔗 Daftar Route Utama
+
+| Method | URL | Nama Route | Keterangan |
+|--------|-----|------------|------------|
+| GET | `/dashboard` | `dashboard` | Halaman dashboard |
+| GET | `/mahasiswa` | `mahasiswa.index` | Daftar mahasiswa |
+| GET | `/mahasiswa/create` | `mahasiswa.create` | Form tambah |
+| POST | `/mahasiswa` | `mahasiswa.store` | Simpan data |
+| GET | `/mahasiswa/{mahasiswa}` | `mahasiswa.show` | Detail |
+| GET | `/mahasiswa/{mahasiswa}/edit` | `mahasiswa.edit` | Form edit |
+| PUT/PATCH | `/mahasiswa/{mahasiswa}` | `mahasiswa.update` | Update data |
+| DELETE | `/mahasiswa/{mahasiswa}` | `mahasiswa.destroy` | Hapus data |
+| GET | `/prodi` | `prodi.index` | Daftar program studi |
+| … | `/prodi/...` | `prodi.*` | CRUD lengkap (resource) |
+
+Daftar lengkap: `php artisan route:list --except-vendor`
+
+---
+
+## 📁 Struktur Folder Penting
+
+```
+app/
+├── Http/Controllers/
+│   ├── DashboardController.php
+│   ├── MahasiswaController.php
+│   └── ProdiController.php
+└── Models/
+    ├── Mahasiswa.php
+    ├── Prodi.php
+    └── User.php
+database/
+├── migrations/
+│   ├── ..._create_prodis_table.php
+│   └── ..._create_mahasiswas_table.php
+└── seeders/
+    ├── DatabaseSeeder.php
+    └── ProdiSeeder.php
+resources/views/
+├── layouts/          # layout utama (sidebar + topbar)
+├── dashboard.blade.php
+├── mahasiswa/        # index, create, edit, show
+└── prodi/            # index, create, edit, show
+routes/
+├── web.php
+└── auth.php
+```
+
+---
+
+## 🚀 Cara Menjalankan
+
+**Kebutuhan:** PHP ≥ 8.3, Composer, Node.js, dan MySQL.
+
+1. Clone repository
+
+   ```bash
+   git clone https://github.com/USERNAME/sim-mahasiswa.git
+   cd sim-mahasiswa
+   ```
+
+2. Install dependency
+
+   ```bash
+   composer install
+   npm install
+   ```
+
+3. Salin file environment dan buat app key
+
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. Atur koneksi database di `.env`
+
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=sim_mahasiswa
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+5. Jalankan migration dan seeder (data prodi awal: TI, SI, TE)
+
+   ```bash
+   php artisan migrate --seed
+   ```
+
+6. Build asset dan jalankan aplikasi
+
+   ```bash
+   npm run build
+   php artisan serve
+   ```
+
+7. Buka `http://127.0.0.1:8000`, lalu **register** akun baru untuk masuk ke dashboard.
+
+---
+
+## 📸 Screenshot
+
+> Tambahkan screenshot ke folder `docs/screenshots/` lalu sesuaikan nama file di bawah.
+
+| Halaman | Screenshot |
+|---------|------------|
+| Login | ![Login](docs/screenshots/login.png) |
+| Dashboard | ![Dashboard](docs/screenshots/dashboard.png) |
+| Data Mahasiswa | ![Data Mahasiswa](docs/screenshots/mahasiswa-index.png) |
+| Tambah Mahasiswa | ![Tambah Mahasiswa](docs/screenshots/mahasiswa-create.png) |
+| Program Studi | ![Program Studi](docs/screenshots/prodi-index.png) |
+| Tampilan Mobile | ![Mobile](docs/screenshots/mobile.png) |
+
+---
+
+## 📝 Catatan Pengerjaan
+
+- Modul ditulis untuk **Laravel 11**, sedangkan project ini memakai **Laravel 13**. Perbedaan utama yang ditemui: PHP minimal 8.3, dan penulisan `casts()` sebagai method pada model.
+- Halaman aplikasi memakai Bootstrap 5 dari CDN, sementara halaman login/register bawaan Breeze tetap memakai Tailwind CSS melalui Vite.
+- Aturan validasi `store` dan `update` digabung ke satu method `rules()` di setiap controller agar tidak ditulis dua kali.
+
+---
+
+## 📌 Rencana Berikutnya
+
+- **STEP 17** — Halaman profil user (ubah nama, email, password)
+- **STEP 18** — Desain ulang halaman login & register
+- **STEP 19** — Factory + seeder data dummy mahasiswa
+- **STEP 20** — Final polish UI
+- **STEP 21** — Cetak PDF data mahasiswa
