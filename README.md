@@ -16,9 +16,11 @@ Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi 
 
 | No | Nama | NIM |
 |----|------|-----|
-| 1  | Taro| 202412023 | 
-| 2  | _Nama Anggota 2_ | _NIM_ |
-| 3  | _Nama Anggota 3_ | _NIM_ | 
+| 1  | __Taro__| __202412023__ | 
+| 2  | _Firman_ | _202412012_ |
+| 3  | _Zaldy_ | _202412040_ | 
+| 4 | _Ninda_ | _202412029_ |
+| 5  | _Yovitha_ | _202412044_ | 
 
 ---
 
@@ -256,7 +258,7 @@ routes/
 
 ## 📝 Catatan Pengerjaan
 
-- Modul ditulis untuk **Laravel 11**, sedangkan project ini memakai **Laravel 13**. Perbedaan utama yang ditemui: PHP minimal 8.3, dan penulisan `casts()` sebagai method pada model.
+- Modul ditulis untuk **Laravel 11**, sedangkan project ini memakai **Laravel 13**. Perbedaan utama yang ditemui: PHP minimal 8.3.
 - Halaman aplikasi memakai Bootstrap 5 dari CDN, sementara halaman login/register bawaan Breeze tetap memakai Tailwind CSS melalui Vite.
 - Aturan validasi `store` dan `update` digabung ke satu method `rules()` di setiap controller agar tidak ditulis dua kali.
 
