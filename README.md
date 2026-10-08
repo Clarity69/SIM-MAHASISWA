@@ -8,7 +8,7 @@ Alur aplikasi:
 Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi → Profile → Logout
 ```
 
->  **Status:** STEP 1–20 selesai, **STEP 21 — Cetak PDF data mahasiswa** sedang dikerjakan.
+> **Status:** STEP 1–20 selesai, **STEP 21 — Cetak PDF data mahasiswa** sedang dikerjakan.
 
 ---
 
@@ -24,7 +24,7 @@ Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi 
 
 ---
 
-##  Teknologi
+## Teknologi
 
 | Komponen | Teknologi | Keterangan |
 |----------|-----------|------------|
@@ -40,7 +40,7 @@ Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi 
 
 ---
 
-##  Progress Pengerjaan
+## Progress Pengerjaan
 
 | Step | Materi | Status |
 |------|--------|--------|
@@ -68,7 +68,7 @@ Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi 
 
 ---
 
-##  Fitur yang Sudah Berjalan
+## Fitur yang Sudah Berjalan
 
 ** Autentikasi** (Laravel Breeze)
 - Register, login, logout (dari sidebar dan dropdown profil)
@@ -107,7 +107,7 @@ Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi 
 
 ---
 
-##  Struktur Database
+## Struktur Database
 
 ```
 prodis (1) ──────< (banyak) mahasiswas
@@ -146,7 +146,7 @@ Relasi Eloquent:
 
 ---
 
-##  Daftar Route Utama
+## Daftar Route Utama
 
 | Method | URL | Nama Route | Keterangan |
 |--------|-----|------------|------------|
@@ -169,7 +169,7 @@ Daftar lengkap: `php artisan route:list --except-vendor`
 
 ---
 
-##  Struktur Folder Penting
+## Struktur Folder Penting
 
 ```
 app/
@@ -207,7 +207,7 @@ routes/
 
 ---
 
-##  Cara Menjalankan
+## Cara Menjalankan
 
 **Kebutuhan:** PHP ≥ 8.3, Composer, Node.js, dan project Supabase.
 
@@ -287,7 +287,7 @@ routes/
 
 ---
 
-##  Screenshot
+## Screenshot
 
 | Halaman | Screenshot |
 |---------|------------|
