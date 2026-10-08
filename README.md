@@ -61,10 +61,10 @@ Login → Dashboard → Data Mahasiswa (CRUD, Pencarian, Filter) → Data Prodi 
 | 14 | CRUD Data Mahasiswa (search, filter, pagination, validasi) | ✅ Selesai |
 | 15 | Dashboard dinamis (statistik + grafik) | ✅ Selesai |
 | 16 | Sidebar + Topbar + Responsive Layout | ✅ Selesai |
-| 17 | Profil User + Authentication | ⏳ Berikutnya |
-| 18 | Mempercantik halaman Login & Register | ⏳ Belum |
-| 19 | Seeder + Factory data dummy | ⏳ Belum |
-| 20 | Final polish UI | ⏳ Belum |
+| 17 | Profil User + Authentication | ✅ Selesai |
+| 18 | Mempercantik halaman Login & Register | ✅ Selesai |
+| 19 | Seeder + Factory data dummy | ✅ Selesai |
+| 20 | Final polish UI | ✅ Selesai |
 | 21 | Print PDF data mahasiswa | ⏳ Belum |
 
 ---
@@ -243,11 +243,10 @@ routes/
 
 ## 📸 Screenshot
 
-> Tambahkan screenshot ke folder `docs/screenshots/` lalu sesuaikan nama file di bawah.
-
 | Halaman | Screenshot |
 |---------|------------|
 | Login | ![Login](docs/screenshots/login.png) |
+| Register| ![Program Studi](docs/screenshots/register.png) |
 | Dashboard | ![Dashboard](docs/screenshots/dashboard.png) |
 | Data Mahasiswa | ![Data Mahasiswa](docs/screenshots/datamhs.png) |
 | Tambah Mahasiswa | ![Tambah Mahasiswa](docs/screenshots/tambahmhs.png) |

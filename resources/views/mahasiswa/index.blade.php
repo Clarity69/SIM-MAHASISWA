@@ -103,7 +103,7 @@
                                     <a href="{{ route('mahasiswa.edit', $mahasiswa) }}" class="btn btn-sm btn-outline-warning" title="Edit">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <form action="{{ route('mahasiswa.destroy', $mahasiswa) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data mahasiswa ini?')">
+                                    <form action="{{ route('mahasiswa.destroy', $mahasiswa) }}" method="POST" class="d-inline form-hapus" data-nama="{{ $mahasiswa->nama }} ({{ $mahasiswa->nim }})" data-jenis="data mahasiswa">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-outline-danger" title="Hapus">

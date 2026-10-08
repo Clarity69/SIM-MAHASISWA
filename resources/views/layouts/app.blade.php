@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Dashboard') | SIM Mahasiswa</title>
-    <link rel="icon" type="image/svg+xml" href="{{ ('favicon.svg') }}">
 
     {{-- SCRIPT PENCEGAH KEDIP (FOUC) - Dieksekusi sebelum body dimuat --}}
     <script>
@@ -166,6 +165,15 @@
         .dropdown-item.text-danger:hover { background-color: #fef2f2 !important; color: #dc3545 !important; }
         [data-bs-theme="dark"] .dropdown-item:hover { background-color: rgba(59, 130, 246, .12); color: #93c5fd; }
         [data-bs-theme="dark"] .dropdown-item.text-danger:hover { background-color: rgba(220, 53, 69, .15) !important; }
+
+        /* MODAL KONFIRMASI HAPUS */
+        .modal-hapus-icon {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: rgba(220, 53, 69, .12); color: #dc3545;
+            display: flex; align-items: center; justify-content: center; font-size: 28px;
+        }
+        [data-bs-theme="dark"] .modal-content { background-color: #1e293b; color: #f8fafc; }
+        [data-bs-theme="dark"] .modal-content .btn-light { background-color: #334155; border-color: #334155; color: #f8fafc; }
     </style>
 
     @stack('styles')
@@ -272,6 +280,31 @@
         </main>
     </div>
 
+    {{-- MODAL KONFIRMASI HAPUS (dipakai semua form dengan class "form-hapus") --}}
+    <div class="modal fade" id="modalHapus" tabindex="-1" aria-labelledby="modalHapusLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow" style="border-radius: 16px;">
+                <div class="modal-body text-center p-4">
+                    <div class="modal-hapus-icon mx-auto mb-3">
+                        <i class="bi bi-trash3-fill"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2" id="modalHapusLabel">Hapus <span id="modalHapusJenis">data</span>?</h5>
+                    <p class="text-muted mb-1">Anda akan menghapus:</p>
+                    <p class="fw-semibold mb-3" id="modalHapusNama">-</p>
+                    <p class="small text-danger mb-0">
+                        <i class="bi bi-exclamation-triangle-fill me-1"></i>Data yang dihapus tidak dapat dikembalikan.
+                    </p>
+                </div>
+                <div class="modal-footer border-0 justify-content-center gap-2 pt-0 pb-4">
+                    <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger px-4" id="modalHapusKonfirmasi">
+                        <i class="bi bi-trash me-1"></i> Ya, Hapus
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // LOGIKA TOGGLE SIDEBAR DINAMIS
@@ -280,12 +313,17 @@
         const overlay = document.getElementById('sidebarOverlay');
         const htmlElement = document.documentElement;
 
+        // Fungsi global: dipakai tombol topbar DAN switch di halaman Profile
+        window.setSidebarHidden = function (hidden) {
+            htmlElement.classList.toggle('sidebar-collapsed', hidden);
+            localStorage.setItem('sidebar_hidden', hidden);
+            document.dispatchEvent(new CustomEvent('sidebarchange', { detail: hidden }));
+        };
+
         toggleBtn?.addEventListener('click', () => {
             if (window.innerWidth >= 992) {
                 // Di Desktop: Tambah/hapus class pada HTML dan simpan ke LocalStorage
-                htmlElement.classList.toggle('sidebar-collapsed');
-                const isHidden = htmlElement.classList.contains('sidebar-collapsed');
-                localStorage.setItem('sidebar_hidden', isHidden);
+                setSidebarHidden(!htmlElement.classList.contains('sidebar-collapsed'));
             } else {
                 // Di Mobile: Pakai class 'show' biasa tanpa disimpan ke LocalStorage
                 sidebar.classList.toggle('show');
@@ -314,12 +352,51 @@
         // Sinkronkan tampilan tombol dengan tema yang sudah dipasang di <head>
         applyThemeUI(htmlElement.getAttribute('data-bs-theme'));
 
+        // Fungsi global: dipakai tombol sidebar DAN switch di halaman Profile
+        window.setTheme = function (theme) {
+            htmlElement.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+            applyThemeUI(theme);
+            document.dispatchEvent(new CustomEvent('themechange', { detail: theme }));
+        };
+
         themeToggle?.addEventListener('click', () => {
             const current = htmlElement.getAttribute('data-bs-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-bs-theme', next);
-            localStorage.setItem('theme', next);
-            applyThemeUI(next);
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // LOGIKA MODAL KONFIRMASI HAPUS
+        const modalHapusEl = document.getElementById('modalHapus');
+        const modalHapus = new bootstrap.Modal(modalHapusEl);
+        const btnKonfirmasiHapus = document.getElementById('modalHapusKonfirmasi');
+        let formAkanDihapus = null;
+
+        // Tangkap submit dari form ber-class "form-hapus", tampilkan modal dulu
+        document.addEventListener('submit', (e) => {
+            const form = e.target.closest('.form-hapus');
+            if (!form || form.dataset.terkonfirmasi === 'true') return;
+
+            e.preventDefault();
+            formAkanDihapus = form;
+            document.getElementById('modalHapusJenis').textContent = form.dataset.jenis || 'data';
+            document.getElementById('modalHapusNama').textContent = form.dataset.nama || 'data ini';
+            btnKonfirmasiHapus.disabled = false;
+            modalHapus.show();
+        });
+
+        // Klik "Ya, Hapus" -> kirim form yang tadi ditahan
+        btnKonfirmasiHapus.addEventListener('click', () => {
+            if (!formAkanDihapus) return;
+            btnKonfirmasiHapus.disabled = true; // cegah klik dua kali
+            btnKonfirmasiHapus.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Menghapus...';
+            formAkanDihapus.dataset.terkonfirmasi = 'true';
+            formAkanDihapus.submit();
+        });
+
+        // Reset saat modal ditutup tanpa menghapus
+        modalHapusEl.addEventListener('hidden.bs.modal', () => {
+            formAkanDihapus = null;
+            btnKonfirmasiHapus.innerHTML = '<i class="bi bi-trash me-1"></i> Ya, Hapus';
         });
     </script>
     @stack('scripts')

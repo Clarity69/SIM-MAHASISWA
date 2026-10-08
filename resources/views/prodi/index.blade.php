@@ -73,7 +73,7 @@
                                     <a href="{{ route('prodi.edit', $prodi) }}" class="btn btn-sm btn-outline-warning" title="Edit">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <form action="{{ route('prodi.destroy', $prodi) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus program studi ini?')">
+                                    <form action="{{ route('prodi.destroy', $prodi) }}" method="POST" class="d-inline form-hapus" data-nama="{{ $prodi->nama_prodi }}" data-jenis="program studi">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-outline-danger" title="Hapus">
