@@ -3,9 +3,9 @@
        IDENTITAS INSTANSI UNTUK KOP — SILAKAN SESUAIKAN
     ========================================================== */
     $kop = [
-        'yayasan'   => 'YAYASAN PENDIDIKAN NAMA YAYASAN',
-        'instansi'  => 'UNIVERSITAS NAMA KAMPUS',
-        'fakultas'  => 'FAKULTAS NAMA FAKULTAS',
+        'yayasan'   => 'Yayasan Pendidikan Besai Berintah',
+        'instansi'  => 'Sekolah Tinggi Teknologi Bontang',
+        'fakultas'  => 'Fakultas Teknik',
         'alamat'    => 'Jalan Letjen S Parman No. 65 Bontang Barat, Kota Bontang, Kalimantan Timur, Kode Pos 75313',
         'kontak'    => 'Telp. (0548) 28782 · Email: admin@stitek.ac.id · Website: https://stitek.ac.id/',
         'kota'      => 'Bontang',
