@@ -172,15 +172,33 @@
     document.addEventListener("DOMContentLoaded", function () {
         const htmlElement = document.documentElement;
 
+        // Fungsi cadangan: tetap jalan walaupun layout belum punya window.setTheme / setSidebarHidden
+        function applyTheme(theme) {
+            if (typeof window.setTheme === 'function') {
+                window.setTheme(theme);
+            } else {
+                htmlElement.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+            }
+        }
+
+        function applySidebarHidden(hidden) {
+            if (typeof window.setSidebarHidden === 'function') {
+                window.setSidebarHidden(hidden);
+            } else {
+                htmlElement.classList.toggle('sidebar-collapsed', hidden);
+                localStorage.setItem('sidebar_hidden', hidden);
+            }
+        }
+
         // --- 1. DARK MODE ---
         const darkModeToggle = document.getElementById('darkModeToggle');
 
         // State awal mengikuti tema yang sedang aktif
         darkModeToggle.checked = htmlElement.getAttribute('data-bs-theme') === 'dark';
 
-        // Pakai fungsi global dari layout agar tombol di sidebar ikut berubah
         darkModeToggle.addEventListener('change', function () {
-            window.setTheme(this.checked ? 'dark' : 'light');
+            applyTheme(this.checked ? 'dark' : 'light');
         });
 
         // Kalau tema diganti dari sidebar, switch di sini ikut berubah
@@ -194,7 +212,7 @@
         sidebarSwitch.checked = htmlElement.classList.contains('sidebar-collapsed');
 
         sidebarSwitch.addEventListener('change', function () {
-            window.setSidebarHidden(this.checked);
+            applySidebarHidden(this.checked);
         });
 
         // Kalau sidebar disembunyikan lewat tombol topbar, switch di sini ikut berubah
